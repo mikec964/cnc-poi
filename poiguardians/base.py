@@ -7,7 +7,7 @@ def load_csv(filename, directory=''):
 
     csvlist = []
     filepath = os.path.join(directory, filename)
-    print(filepath)
+    # print(filepath)
     with open(filepath, 'U') as f:
         reader = csv.reader(f)
         for row in reader:

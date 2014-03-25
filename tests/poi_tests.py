@@ -6,12 +6,8 @@ from poiguardians.poi import *
 
 import unittest
 
-# It's a mess, but appending to the sys path allows you to run this directly.
-# Without it, you'd need this in the Python:
-# from ..poiguardians.poi import *
-# And you'd do this from the command line:
-    # To run these tests, cd to the PARENT of poiguardians, then:
-    # python -m poiguardians.tests.poi_tests
+# You can run all tests in this directory with:
+# python -m unittest discover -p '*tests.py'
 
 
 class test_poi(unittest.TestCase):
