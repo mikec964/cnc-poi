@@ -28,7 +28,7 @@ class Base(object):
         self.coords = coords
 
     @classmethod
-    def load_base_file(self, filename, directory=''):
+    def load_file(self, filename, directory=''):
         csv_list = load_csv(filename, directory)
         # Now, parse csv list of players into list of bases
         base_list = []

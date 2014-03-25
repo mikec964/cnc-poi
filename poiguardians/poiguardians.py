@@ -29,8 +29,9 @@ def main():
                     closest_poi = poi2
         print(int(closest_distance), poi1.ptype, poi1.coords, closest_poi.ptype, closest_poi.coords)
 
-    base_list = base.load_csv('bases.csv', '../data')
-    print(base_list[0][0])
+    base_list = base.Base.load_file('bases.csv', '../data')
+    for pbase in base_list:
+        pbase.print_table()
 
 if __name__ == "__main__":
     main()

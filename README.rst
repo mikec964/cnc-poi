@@ -11,8 +11,7 @@ Key features:
 
 * Importing the POI list from CnC and outputting a CSV file
 
-* Importing a list of bases per player and outputting a CSV file with one
-line per base
+* Importing a list of bases per player and outputting a CSV file with one line per base
 
 Key features planned:
 

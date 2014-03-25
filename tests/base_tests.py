@@ -14,7 +14,7 @@ class test_base(unittest.TestCase):
     """ Tests for the Base object"""
 
     def test_load_base(self):
-        base_list = Base.load_base_file('testdata-bases.csv')
+        base_list = Base.load_file('testdata-bases.csv')
         self.assertIsNotNone(base_list, 'Base list not loading')
         self.assertEqual(base_list[0].owner, 'xbrDeckard', 'Incorrect field parsing')
         for base in base_list:
