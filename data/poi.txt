@@ -1,0 +1,36 @@
+[b][u]Tiberium[/u][/b] 
+L26 [coords]704:271[/coords] (1500)
+L23 [coords]681:241[/coords] (400)
+L20 [coords]709:229[/coords] (100)
+L19 [coords]676:209[/coords] (65)
+L17 [coords]701:206[/coords] (25)
+
+[b][u]Crystal[/u][/b] 
+L24 [coords]671:243[/coords] (650)
+L21 [coords]711:238[/coords] (150)
+L19 [coords]706:221[/coords] (65)
+L18 [coords]690:204[/coords] (40)
+
+[b][u]Reactor[/u][/b] 
+L23 [coords]658:227[/coords] (400)
+L22 [coords]715:249[/coords] (250)
+L22 [coords]682:233[/coords] (250)
+
+[b][u]Tungsten[/u][/b] 
+L25 [coords]683:258[/coords] (1000)
+L22 [coords]696:235[/coords] (250)
+L19 [coords]718:229[/coords] (65)
+
+[b][u]Uranium[/u][/b] 
+L15 [coords]680:188[/coords] (10)
+
+[b][u]Aircraft[/u][/b] 
+L20 [coords]676:215[/coords] (100)
+L19 [coords]685:214[/coords] (65)
+
+[b][u]Resonator[/u][/b] 
+L23 [coords]676:236[/coords] (400)
+L20 [coords]667:212[/coords] (100)
+L19 [coords]733:235[/coords] (65)
+L19 [coords]699:216[/coords] (65)
+

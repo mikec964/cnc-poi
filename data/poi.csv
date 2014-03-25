@@ -1,0 +1,26 @@
+# type, level, points, coordinates
+Tiberium, 13, 695:186
+Tiberium, 19, 676:209
+
+Crystal, 18, 690:204
+Crystal, 19, 674:204
+
+Power, 13, 691:184
+Power, 17, 663:192
+Power, 22, 715:249
+
+Infantry, 13, 723:195
+Infantry, 18, 670:198
+Infantry, 19, 718:229
+
+Vehicles, 15, 680:188
+
+Aircraft, 15, 673:196
+Aircraft, 18, 683:202
+Aircraft, 19, 685:214
+Aircraft, 20, 676:215
+
+Defense, 16, 680:192
+Defense, 19, 699:216
+Defense, 20, 667:212
+Defense, 26, 710:280
