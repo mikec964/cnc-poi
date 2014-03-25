@@ -34,17 +34,21 @@ class Base(object):
         base_list = []
         for player in csv_list:
             if player[0] != 'Timestamp':
-                base = Base(player[1], player[2], player[3], player[4], player[5])
+                coords = (int(player[5][0:3]), int(player[5][4:7]))
+                base = Base(player[1], player[2], player[3], player[4], coords)
                 base_list.append(base)
 
                 if (player[6] != ''):
-                    base = Base(player[1], player[6], player[7], player[8], player[9])
+                    coords = (int(player[9][0:3]), int(player[9][4:7]))
+                    base = Base(player[1], player[6], player[7], player[8], coords)
                     base_list.append(base)
                 if (player[10] != ''):
-                    base = Base(player[1], player[10], player[11], player[12], player[13])
+                    coords = (int(player[13][0:3]), int(player[13][4:7]))
+                    base = Base(player[1], player[10], player[11], player[12], coords)
                     base_list.append(base)
                 if (player[14] != ''):
-                    base = Base(player[1], player[14], player[15], player[16], player[17])
+                    coords = (int(player[17][0:3]), int(player[17][4:7]))
+                    base = Base(player[1], player[14], player[15], player[16], coords)
                     base_list.append(base)
         return base_list
 

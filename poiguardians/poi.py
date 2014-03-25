@@ -61,7 +61,7 @@ class Poi(object):
         x1, y1 = self.coords
         x2, y2 = point2
         # print(x1, y1)
-        r = math.sqrt((x2-x1)**2+(y2-y1)**2)
+        r = round(math.sqrt((x2-x1)**2+(y2-y1)**2),1)
         return r
 
     def print_csv(self):
