@@ -17,21 +17,26 @@ List outlying POIs.
 """
 
 def main():
-    poi_list = poi.Poi.load_poi_file('poi.txt', '../data')
+    poi_list = poi.Poi.load_file('poi.txt', '../data')
+    print("#### POI LIST ####")
     for poi1 in poi_list:
-        closest_distance = 9999
-        closest_poi = None
-        for poi2 in poi_list:
-            if poi1.coords != poi2.coords:
-                dist = poi1.distance(poi2.coords)
-                if dist < closest_distance:
-                    closest_distance = dist
-                    closest_poi = poi2
-        print(int(closest_distance), poi1.ptype, poi1.coords, closest_poi.ptype, closest_poi.coords)
+        poi1.print_table()
 
     base_list = base.Base.load_file('bases.csv', '../data')
-    for pbase in base_list:
-        pbase.print_table()
+    print("\n#### BASE LIST ####")
+    for base1 in base_list:
+        base1.print_table()
+
+    print("\n### POI TO BASE LIST ####")
+    for poi1 in poi_list:
+        closest_distance = 9999
+        closest_base = None
+        for base1 in base_list:
+            dist = poi1.distance(base1.coords)
+            if dist < closest_distance:
+                closest_distance = dist
+                closest_base = base
+        # print(int(closest_distance), poi1.ptype, poi1.coords, closest_base.name, closest_base.coords)
 
 if __name__ == "__main__":
     main()

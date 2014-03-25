@@ -5,8 +5,14 @@ class Poi(object):
     """Points of Interest have a ptype, location, level and points"""
 
 
+    def __init__(self, ptype, level, points, coords):
+        self.ptype = ptype
+        self.level = level
+        self.points = points
+        self.coords = coords
+
     @classmethod
-    def load_poi_file(cls, source_file, source_dir=''):
+    def load_file(cls, source_file, source_dir=''):
         """Load POI from a text file
 
         For groups of POI types, the text file looks like this:
@@ -44,16 +50,9 @@ class Poi(object):
                 poi_coords = (int(coords[8:11]), int(coords[12:15]))
                 poi_points = points[1:len(points) - 2]
                 # print (poi_type, poi_level, poi_coords, poi_points)
-                poi = Poi(poi_type, poi_level, poi_coords, poi_points)
+                poi = Poi(poi_type, poi_level, poi_points, poi_coords)
                 poi_list.append(poi)
         return poi_list
-
-    def __init__(self, ptype, level, coords, points):
-        self.ptype = ptype
-        self.level = level
-        self.coords = coords
-        self.points = points
-
 
     def distance(self, point2):
         """Points are xy coordinates"""
@@ -64,4 +63,12 @@ class Poi(object):
         # print(x1, y1)
         r = math.sqrt((x2-x1)**2+(y2-y1)**2)
         return r
+
+    def print_csv(self):
+        print("{0},{1},{2},{3}".format(
+            self.ptype, self.level, self.points, self.coords))
+
+    def print_table(self):
+        print("{0:9}  {1:2}  {2:4}  {3:10}".format(
+            self.ptype, self.level, self.points, self.coords))
 
