@@ -54,6 +54,11 @@ class Poi(object):
                 poi_list.append(poi)
         return poi_list
 
+    def coords_link(self):
+        link = "[coords]{0}:{1}[/coords]".format(
+            self.coords[0], self.coords[1])
+        return link
+
     def distance(self, point2):
         """Points are xy coordinates"""
 

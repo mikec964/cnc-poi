@@ -6,7 +6,6 @@ from poiguardians.poi import *
 
 import StringIO
 import unittest
-import mock     # In python3, mock is part of unittest
 
 # You can run all tests in this directory with:
 # python -m unittest discover -p '*tests.py'
@@ -53,6 +52,10 @@ class test_poi(unittest.TestCase):
         #     self.assertEqual(fake_out.getvalue(), 'Tiberium,26,1500,(704, 271)')
         #     poi_list[0].print_table()
         #     self.assertEqual(fake_out.getvalue(), 'Tiberium   26  1500  (704, 271)')
+
+    def test_maplink(self):
+        poi_list = Poi.load_file('testdata-poi.txt')
+        self.assertEqual(poi_list[0].coords_link(), '[coords]704:271[/coords]')
 
 
 if __name__ == '__main__':

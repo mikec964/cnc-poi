@@ -25,6 +25,10 @@ class test_base(unittest.TestCase):
         self.assertEqual(x,657)
         self.assertEqual(y,227)
 
+    def test_maplink(self):
+        base_list = Base.load_file('testdata-bases.csv')
+        self.assertEqual(base_list[0].coords_link(), '[coords]657:227[/coords]')
+
 
 if __name__ == '__main__':
     unittest.main()

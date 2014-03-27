@@ -52,6 +52,11 @@ class Base(object):
                     base_list.append(base)
         return base_list
 
+    def coords_link(self):
+        link = "[coords]{0}:{1}[/coords]".format(
+            self.coords[0], self.coords[1])
+        return link
+
     def print_csv(self):
         print("{0},{1},{2},{3},{4}".format(
             self.owner, self.name, self.attack, self.defense, self.coords))
