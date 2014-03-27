@@ -16,12 +16,34 @@ List POIs within 20 of a player.
 List outlying POIs.
 """
 
+def bases_not_rp_farms(base_list):
+    """Return a list of bases that aren't RP farms"""
+
+    possible_guardians = []
+    for b in base_list:
+        if not ((b.name.upper().find("RP") != -1) \
+        and (b.name.upper().find("RPKING") == -1)):
+            # print b.name
+            possible_guardians.append(b)
+    return possible_guardians
+
+def bases_with_defense(base_list, defense):
+    """Return a list of bases with at least a certain defense value"""
+
+    possible_guardians = []
+    for b in base_list:
+        if b.defense > defense:
+            possible_guardians.append(b)
+    # print(possible_guardians[0].name)
+    # print(possible_guardians[1].name)
+    return possible_guardians
+
 def bases_with_attack(base_list, attack):
     """Return a list of bases with at least a certain attack value"""
 
     possible_guardians = []
     for b in base_list:
-        if b.attack > 10:
+        if b.attack > attack:
             possible_guardians.append(b)
     # print(possible_guardians[0].name)
     # print(possible_guardians[1].name)
@@ -42,8 +64,9 @@ def assign_bases(poi_list, base_list):
     Follow a set of rules:
     a) Automatically assign bases adjacent to a POI to guard that POI
     b) Try to only use 1 base from a player to be a guardian
-    c) Don't assign RP farms or weak attack bases to be guardians
-    d) Try to assign the closest qualified base
+    x) Don't assign RP farms or weak defense bases to be guardians
+    x) Pick the strongest players first, so they don't move so far
+    e) Try to assign the closest qualified base
     """
 
     guardians = {}
@@ -72,16 +95,17 @@ def assign_bases(poi_list, base_list):
 
 def main():
     poi_list = poi.Poi.load_file('poi.txt', '../data')
-    print("#### POI LIST ({0}) ####".format(len(poi_list)))
-    for poi1 in poi_list:
-        poi1.print_table()
+    # print("#### POI LIST ({0}) ####".format(len(poi_list)))
+    # for poi1 in poi_list:
+    #     poi1.print_table()
 
     base_list = base.Base.load_file('ASY2 base list - Form Responses 1.csv', '../data')
-    print("\n#### BASE LIST ({0}) ####".format(len(base_list)))
-    for base1 in base_list:
-        base1.print_table()
+    # print("\n#### BASE LIST ({0}) ####".format(len(base_list)))
+    # for base1 in base_list:
+    #     base1.print_table()
 
-    possible_guardians = bases_with_attack(base_list, 10)
+    possible_guardians = bases_not_rp_farms(base_list)
+    possible_guardians = bases_with_defense(possible_guardians, 15)
     guardians = assign_bases(poi_list, possible_guardians)
 
     # Print Poi list

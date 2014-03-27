@@ -1,4 +1,5 @@
+__pychache__/
 *.pyc
 *.sublime-project
-data/*
-
+*.sublime-workspace
+data/
