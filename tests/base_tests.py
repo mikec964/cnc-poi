@@ -29,6 +29,10 @@ class test_base(unittest.TestCase):
         base_list = Base.load_file('testdata-bases.csv')
         self.assertEqual(base_list[0].coords_link(), '[coords]657:227[/coords]')
 
+    def test_playerlink(self):
+        base_list = Base.load_file('testdata-bases.csv')
+        self.assertEqual(base_list[0].owner_link(), '[player]xbrDeckard[/player]')
+
 
 if __name__ == '__main__':
     unittest.main()

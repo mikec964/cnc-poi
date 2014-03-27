@@ -57,6 +57,10 @@ class Base(object):
             self.coords[0], self.coords[1])
         return link
 
+    def owner_link(self):
+        link = "[player]{0}[/player]".format(self.owner)
+        return link
+
     def print_csv(self):
         print("{0},{1},{2},{3},{4}".format(
             self.owner, self.name, self.attack, self.defense, self.coords))
