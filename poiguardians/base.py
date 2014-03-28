@@ -34,23 +34,28 @@ class Base(object):
         base_list = []
         for player in csv_list:
             if player[0] != 'Timestamp':
-                coords = (int(player[5][0:3]), int(player[5][4:7]))
-                base = Base(player[1], player[2], player[3], player[4], coords)
-                base_list.append(base)
-
-                if (player[6] != ''):
-                    coords = (int(player[9][0:3]), int(player[9][4:7]))
-                    base = Base(player[1], player[6], player[7], player[8], coords)
-                    base_list.append(base)
-                if (player[10] != ''):
-                    coords = (int(player[13][0:3]), int(player[13][4:7]))
-                    base = Base(player[1], player[10], player[11], player[12], coords)
-                    base_list.append(base)
-                if (player[14] != ''):
-                    coords = (int(player[17][0:3]), int(player[17][4:7]))
-                    base = Base(player[1], player[14], player[15], player[16], coords)
-                    base_list.append(base)
+                for i in [2, 6, 10, 14]:
+                    if (player[i] != ''):
+                        x = Base.csv_to_base(player[1], player[i], player[i+1], player[i+2], player[i+3])
+                        # print x
+                        base = Base(x[0], x[1], x[2], x[3], x[4])
+                        base_list.append(base)
         return base_list
+
+    @classmethod
+    def csv_to_base(self, ownerStr, nameStr, attackStr, defenseStr, coordsStr):
+        owner = ownerStr
+        name = nameStr
+        if attackStr != '':
+            attack = int(attackStr)
+        else:
+            attack = 0
+        if defenseStr != '':
+            defense = int(defenseStr)
+        else:
+            defense = 0
+        coords = (int(coordsStr[0:3]), int(coordsStr[4:7]))
+        return (owner, name, attack, defense, coords)
 
     def coords_link(self):
         link = "[coords]{0}:{1}[/coords]".format(
@@ -66,6 +71,6 @@ class Base(object):
             self.owner, self.name, self.attack, self.defense, self.coords))
 
     def print_table(self):
-        print("{0:15} {1:20} {2:3} {3:3} {4}".format(
+        print("{0:17} {1:20} {2:3} {3:3} {4}".format(
             self.owner, self.name, self.attack, self.defense, self.coords))
 

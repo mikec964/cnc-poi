@@ -77,3 +77,6 @@ class Poi(object):
         print("{0:9}  {1:2}  {2:4}  {3:10}".format(
             self.ptype, self.level, self.points, self.coords))
 
+    def print_email(self):
+        print("{0}-{1}, {2} points at {3}".format(
+            self.ptype, self.level, self.points, self.coords_link()))

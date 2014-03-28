@@ -32,7 +32,8 @@ def bases_with_defense(base_list, defense):
 
     possible_guardians = []
     for b in base_list:
-        if b.defense > defense:
+        # print(b.name, "-", b.defense, ">=", defense, int(b.defense) >= int(defense))
+        if (b.defense >= defense):
             possible_guardians.append(b)
     # print(possible_guardians[0].name)
     # print(possible_guardians[1].name)
@@ -95,14 +96,18 @@ def assign_bases(poi_list, base_list):
 
 def main():
     poi_list = poi.Poi.load_file('poi.txt', '../data')
-    # print("#### POI LIST ({0}) ####".format(len(poi_list)))
-    # for poi1 in poi_list:
-    #     poi1.print_table()
+    print("#### POI LIST ({0}) ####".format(len(poi_list)))
+    for poi1 in poi_list:
+        poi1.print_email()
 
     base_list = base.Base.load_file('ASY2 base list - Form Responses 1.csv', '../data')
-    # print("\n#### BASE LIST ({0}) ####".format(len(base_list)))
-    # for base1 in base_list:
-    #     base1.print_table()
+    print("\n#### BASE LIST ({0}) ####".format(len(base_list)))
+    for base1 in base_list:
+        base1.print_table()
+
+    poi_dict = {}
+    for p in poi_list:
+        poi_dict[p.coords] = p
 
     possible_guardians = bases_not_rp_farms(base_list)
     possible_guardians = bases_with_defense(possible_guardians, 15)
@@ -122,8 +127,9 @@ def main():
     for coords in guardians.keys():
         base1 = guardians[coords]
         print("{0}, move {1} at {2} to the {3}-{4} at {5}".format(
-            base1.owner, base1.name, base1.coords,
-            'resource', 'level', coords
+            base1.owner_link(), base1.name, base1.coords_link(),
+            poi_dict[coords].ptype, poi_dict[coords].level,
+            poi_dict[coords].coords_link()
             ))
 
 if __name__ == "__main__":
