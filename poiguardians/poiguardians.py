@@ -1,6 +1,3 @@
-import os
-import csv
-
 import poi
 import base
 
@@ -15,6 +12,7 @@ Report how many players are within 20 of a POI.
 List POIs within 20 of a player.
 List outlying POIs.
 """
+
 
 def bases_not_rp_farms(base_list):
     """Return a list of bases that aren't RP farms"""
@@ -95,7 +93,7 @@ def assign_bases(poi_list, base_list):
 
 
 def main():
-    poi_list = poi.Poi.load_file('poi.txt', '../data')
+    poi_list = poi.Poi.load_file('poi-junior.txt', '../data')
     print("#### POI LIST ({0}) ####".format(len(poi_list)))
     for poi1 in poi_list:
         poi1.print_email()

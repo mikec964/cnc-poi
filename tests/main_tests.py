@@ -6,7 +6,6 @@ from poiguardians.poiguardians import *
 from poiguardians.base import *
 from poiguardians.poi import *
 
-import StringIO
 import unittest
 
 class test_poiguardians(unittest.TestCase):

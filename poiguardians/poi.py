@@ -43,7 +43,8 @@ class Poi(object):
                     line_type = 'poi type'
                     # print(line, 'matched', r)
                     poi_type = r
-            if line.find('coords') != -1:
+            if (line.find('coords') != -1) \
+            and (line[0] != '#'):
                 line_type = 'poi location'
                 level, coords, points = line.split(' ')
                 poi_level = level[1:]

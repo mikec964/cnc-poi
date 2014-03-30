@@ -1,6 +1,5 @@
 import os
 import csv
-import math
 
 def load_csv(filename, directory=''):
     """Filter out commented lines"""
